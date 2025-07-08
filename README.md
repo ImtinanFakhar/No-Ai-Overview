@@ -19,10 +19,10 @@ A Chrome extension that removes Google's AI Overview and filters AI-related cont
 ## 📸 Screenshots
 
 ### Before (with AI Overview)
-![Description](screenshots/before-extension-installed.png)
+![Description](screenshots/before-extension-installed.PNG)
 
 ### After (clean search results)
-![Description](screenshots/after-extension-installed.png)
+![Description](screenshots/after-extension-installed.PNG)
 
 ## 🚀 Installation
 
