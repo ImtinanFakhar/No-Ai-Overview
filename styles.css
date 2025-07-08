@@ -1,0 +1,91 @@
+/* Styles for AI result blocking indicators */
+
+/* Blocked result placeholder */
+.noai-blocked-result {
+  background: #f8f9fa;
+  border: 1px dashed #dadce0;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+  font-size: 12px;
+  color: #5f6368;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.noai-blocked-result::before {
+  content: "🚫 ";
+  margin-right: 4px;
+}
+
+/* Blocked count indicator in corner */
+.noai-blocked-indicator {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #1a73e8;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.noai-blocked-indicator.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.noai-blocked-indicator.hide {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Subtle highlight for AI content being processed */
+.noai-processing {
+  outline: 1px solid #ea4335 !important;
+  outline-offset: 2px;
+  animation: noai-pulse 0.5s ease-in-out;
+}
+
+@keyframes noai-pulse {
+  0% { outline-color: transparent; }
+  50% { outline-color: #ea4335; }
+  100% { outline-color: transparent; }
+}
+
+/* Hide Google's AI features with smooth transition */
+[data-attrid="AIOverview"],
+[data-attrid="GenAIOverview"],
+.ai-overview-container,
+.generative-ai-overview {
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+/* Custom blocked message for Google AI features */
+.noai-google-ai-blocked {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8f0fe 100%);
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+  text-align: center;
+  font-size: 13px;
+  color: #5f6368;
+}
+
+.noai-google-ai-blocked .title {
+  font-weight: 500;
+  color: #1a73e8;
+  margin-bottom: 4px;
+}
+
+.noai-google-ai-blocked .description {
+  font-size: 12px;
+  opacity: 0.8;
+}

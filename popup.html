@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a73e8;
+      margin-bottom: 5px;
+    }
+    
+    .subtitle {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .toggle-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .toggle-label {
+      font-size: 14px;
+      color: #333;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 24px;
+      background: #ccc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .toggle-switch.active {
+      background: #1a73e8;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: left 0.3s;
+    }
+    
+    .toggle-switch.active .toggle-slider {
+      left: 28px;
+    }
+    
+    .status {
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    
+    .status.enabled {
+      background: #e8f5e8;
+      color: #2d5a2d;
+    }
+    
+    .status.disabled {
+      background: #ffebee;
+      color: #b71c1c;
+    }
+    
+    .info {
+      font-size: 11px;
+      color: #666;
+      text-align: center;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+    
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+      padding: 15px;
+      background: #f0f4ff;
+      border-radius: 8px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1a73e8;
+    }
+    
+    .stat-label {
+      font-size: 10px;
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    .options-container {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    .option-item {
+      margin-bottom: 10px;
+    }
+    
+    .option-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .option-label {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #333;
+      cursor: pointer;
+    }
+    
+    .option-label input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">No Google AI Overview</div>
+    <div class="subtitle">Block AI results from Google</div>
+  </div>
+  
+  <div class="toggle-container">
+    <div class="toggle-label">Block AI Results</div>
+    <div class="toggle-switch" id="toggleSwitch">
+      <div class="toggle-slider"></div>
+    </div>
+  </div>
+  
+  <div class="stats-container">
+    <div class="stat-item">
+      <div class="stat-number" id="blockedCount">0</div>
+      <div class="stat-label">Results Blocked Today</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" id="searchCount">0</div>
+      <div class="stat-label">Searches Filtered</div>
+    </div>
+  </div>
+  
+  <div class="options-container">
+    <div class="option-item">
+      <label class="option-label">
+        <input type="checkbox" id="aggressiveMode"> Aggressive Filtering
+      </label>
+    </div>
+    <div class="option-item">
+      <label class="option-label">
+        <input type="checkbox" id="showNotifications"> Show Notifications
+      </label>
+    </div>
+  </div>
+  
+  <div class="status" id="status">
+    Extension is enabled
+  </div>
+
+  <button id="openOptionsBtn" style="width:100%;margin-top:12px;padding:10px 0;background:#1a73e8;color:#fff;border:none;border-radius:6px;font-size:15px;cursor:pointer;">Options</button>
+
+  <div class="info">
+    When enabled, this extension automatically adds AI-blocking terms to your Google searches and hides AI-related results.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

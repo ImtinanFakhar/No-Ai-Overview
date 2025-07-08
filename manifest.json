@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "No AI Google Search",
+  "version": "1.0",
+  "description": "Removes AI Overview and filters AI content from Google Search.",
+  "permissions": ["scripting", "tabs", "storage", "notifications"],
+  "host_permissions": [
+    "*://*.google.com/*",
+    "*://*.google.co.uk/*",
+    "*://*.google.ca/*",
+    "*://*.google.de/*",
+    "*://*.google.fr/*",
+    "*://*.google.it/*",
+    "*://*.google.es/*",
+    "*://*.google.com.au/*",
+    "*://*.google.co.in/*",
+    "*://*.google.com.br/*",
+    "*://*.google.co.jp/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "No AI Search"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://google.com/search*",
+        "*://*.google.com/search*",
+        "*://www.google.co.uk/search*",
+        "*://www.google.ca/search*",
+        "*://www.google.de/search*",
+        "*://www.google.fr/search*",
+        "*://www.google.it/search*",
+        "*://www.google.es/search*",
+        "*://www.google.com.au/search*",
+        "*://www.google.co.in/search*",
+        "*://www.google.com.br/search*",
+        "*://www.google.co.jp/search*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "commands": {
+    "toggle-extension": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Toggle No AI Search extension"
+    }
+  },
+  "options_page": "options.html",
+  "homepage_url": "https://github.com/imtinanfakhar/no-ai-search"
+}
